@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf6x78kmjyqn6"]
+
+[ext_resource type="Texture2D" uid="uid://ce51b2f02tlv0" path="res://assets/sprites/Chessboard.png" id="1_ju1l3"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(580, 323.5)
+scale = Vector2(9.09375, 5.02344)
+texture = ExtResource("1_ju1l3")

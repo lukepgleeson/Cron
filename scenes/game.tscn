@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw2hyhxy7w22s"]
+
+[ext_resource type="PackedScene" uid="uid://74fkls0a68xk" path="res://scenes/player.tscn" id="1_oxvkw"]
+[ext_resource type="PackedScene" uid="uid://bphf2dmas28ic" path="res://scenes/board.tscn" id="2_hwehi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s6mh6"]
+normal = Vector2(1, 0)
+distance = -78.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_54cpg"]
+normal = Vector2(0, 1)
+distance = -82.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p2566"]
+normal = Vector2(-1, 0)
+distance = 66.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aggds"]
+distance = -82.0
+
+[node name="Game" type="Node2D"]
+
+[node name="Board" parent="." instance=ExtResource("2_hwehi")]
+offset_bottom = -20.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("1_oxvkw")]
+position = Vector2(-68, -13)
+
+[node name="MoveTimer" type="Timer" parent="Player"]
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="westwall" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_s6mh6")
+
+[node name="northwall" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_54cpg")
+
+[node name="eastwall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(145, 0)
+shape = SubResource("WorldBoundaryShape2D_p2566")
+
+[node name="southwall" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_aggds")

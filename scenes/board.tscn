@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bphf2dmas28ic"]
+
+[ext_resource type="Script" path="res://scripts/Board.cs" id="1_vmtmb"]
+
+[node name="Board" type="GridContainer"]
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+script = ExtResource("1_vmtmb")

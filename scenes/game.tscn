@@ -30,6 +30,7 @@ zoom = Vector2(4, 4)
 position = Vector2(-68, -13)
 
 [node name="MoveTimer" type="Timer" parent="Player"]
+wait_time = 0.5
 autostart = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

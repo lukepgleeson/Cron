@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw2hyhxy7w22s"]
+[gd_scene load_steps=10 format=3 uid="uid://bw2hyhxy7w22s"]
 
 [ext_resource type="PackedScene" uid="uid://74fkls0a68xk" path="res://scenes/player.tscn" id="1_oxvkw"]
+[ext_resource type="Script" path="res://scripts/Game.cs" id="1_tjk83"]
 [ext_resource type="PackedScene" uid="uid://bphf2dmas28ic" path="res://scenes/board.tscn" id="2_hwehi"]
+[ext_resource type="Script" path="res://scripts/PlanPlayer.cs" id="3_cvkgx"]
+[ext_resource type="Script" path="res://scripts/ExecutePlayer.cs" id="4_dfjr7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s6mh6"]
 normal = Vector2(1, 0)
@@ -19,15 +22,10 @@ distance = 66.0
 distance = -82.0
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_tjk83")
 
 [node name="Board" parent="." instance=ExtResource("2_hwehi")]
 offset_bottom = -20.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-
-[node name="Player" parent="." instance=ExtResource("1_oxvkw")]
-position = Vector2(-68, -13)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -43,3 +41,24 @@ shape = SubResource("WorldBoundaryShape2D_p2566")
 
 [node name="southwall" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_aggds")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="PlanPlayer" parent="." instance=ExtResource("1_oxvkw")]
+position = Vector2(-68, -13)
+script = ExtResource("3_cvkgx")
+
+[node name="ExecutePlayer" parent="." instance=ExtResource("1_oxvkw")]
+position = Vector2(-68, -13)
+script = ExtResource("4_dfjr7")
+
+[node name="ResolveTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="RoundResolverButton" type="Button" parent="."]
+offset_left = -33.0
+offset_top = -113.0
+offset_right = 35.0
+offset_bottom = -82.0
+text = "Resolve"

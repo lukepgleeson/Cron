@@ -6,6 +6,15 @@ public partial class Player : CharacterBody2D
     private bool canMove = false;
     Vector2 moveDirection = new Vector2(0, 0);
 
+    public override void _Ready()
+    {
+        int xStartingPos = -(SizeConstants.BOARD_COLUMNS*SizeConstants.SQUARE)/2 + SizeConstants.SQUARE/2;
+        int yStartingPos = (SizeConstants.BOARD_COLUMNS*SizeConstants.SQUARE)/2 - SizeConstants.SQUARE/2 - 3;
+        GD.Print(xStartingPos);
+        GD.Print(yStartingPos);
+        this.Position = new Vector2(xStartingPos, yStartingPos);
+    }
+
     public override void _Process(double delta)
     {
         move();
@@ -35,8 +44,10 @@ public partial class Player : CharacterBody2D
         {
             moveDirection = right;
         }
-        if ((Math.Abs((this.Position + moveDirection).X) > (SizeConstants.SQUARE * SizeConstants.BOARD_COLUMNS) / 2) ||
-        (Math.Abs((this.Position + moveDirection).Y) > (SizeConstants.SQUARE * SizeConstants.BOARD_COLUMNS) / 2))
+        int boundary = (SizeConstants.SQUARE * SizeConstants.BOARD_COLUMNS) / 2;
+        int futureXPos = (int)Math.Abs(this.Position.X + moveDirection.X);
+        int futureYPos = (int)Math.Abs(this.Position.Y + moveDirection.Y);
+        if ((futureXPos > boundary) || (futureYPos > boundary))
         {
             moveDirection = Vector2.Zero;
         }

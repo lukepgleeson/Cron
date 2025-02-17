@@ -13,7 +13,6 @@ public partial class ExecutePlayer : Player
     }
     
     private void Move(){
-        GD.Print("Moving to " + moves[0].ToString());
         this.CronHop(moves[0]);
         moves.RemoveAt(0);
         if(moves.Count == 0){

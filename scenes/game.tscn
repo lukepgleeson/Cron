@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://74fkls0a68xk" path="res://scenes/player.tscn" id="1_oxvkw"]
 [ext_resource type="Script" path="res://scripts/Game.cs" id="1_tjk83"]
 [ext_resource type="PackedScene" uid="uid://bphf2dmas28ic" path="res://scenes/board.tscn" id="2_hwehi"]
-[ext_resource type="Script" path="res://scripts/PlanPlayer.cs" id="3_cvkgx"]
-[ext_resource type="Script" path="res://scripts/ExecutePlayer.cs" id="4_dfjr7"]
+[ext_resource type="Script" path="res://scripts/character/PlanPlayer.cs" id="3_cvkgx"]
+[ext_resource type="Script" path="res://scripts/character/ExecutePlayer.cs" id="4_dfjr7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s6mh6"]
 normal = Vector2(1, 0)

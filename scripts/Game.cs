@@ -14,7 +14,6 @@ public partial class Game : Node2D
 
     private void RoundResolverButtonPressed()
     {
-        GD.Print("Button pressed!");
         PlanPlayer planPlayer = GetNode<PlanPlayer>("PlanPlayer");
         planPlayer.Freeze = true;
         ExecutePlayer executePlayer = GetNode<ExecutePlayer>("ExecutePlayer");

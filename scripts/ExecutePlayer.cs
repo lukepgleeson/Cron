@@ -5,11 +5,7 @@ public partial class ExecutePlayer : Player
 {
     private Timer resolveTimer;
 
-    public override void _Ready(){
-        Init();
-    }
-
-    public void Resolve(List<Vector2> moves){
+    public void Resolve(List<CronVector> moves){
         this.moves = moves;
         resolveTimer = GetParent().GetNode<Timer>("ResolveTimer");
         resolveTimer.Timeout += Move;
@@ -17,8 +13,8 @@ public partial class ExecutePlayer : Player
     }
     
     private void Move(){
-        GD.Print("Moving to " + moves[0]);
-        this.Position = moves[0];
+        GD.Print("Moving to " + moves[0].ToString());
+        this.CronHop(moves[0]);
         moves.RemoveAt(0);
         if(moves.Count == 0){
             resolveTimer.Stop();

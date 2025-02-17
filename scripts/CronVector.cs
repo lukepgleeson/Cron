@@ -1,0 +1,38 @@
+using Godot;
+using System;
+
+public class CronVector
+{
+    public int X;
+    public int Y;
+
+    public CronVector(int X, int Y)
+    {
+        this.X = X;
+        this.Y = Y;
+    }
+
+    public Vector2 ToVector2()
+    {
+        return GridTranslation.Translate(this.X, this.Y);
+    }
+
+    public CronVector Add(CronVector otherVector)
+    {
+        int AddedX = this.X + otherVector.X == 0 ? otherVector.X / Math.Abs(otherVector.X) : this.X + otherVector.X;
+        int AddedY = this.Y + otherVector.Y == 0 ? otherVector.Y / Math.Abs(otherVector.Y) : this.Y + otherVector.Y;
+        return new CronVector(AddedX, AddedY);
+    }
+
+    public override string ToString()
+    {
+        return "x : " + this.X + "," + " y : " + this.Y;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is CronVector vector &&
+               X == vector.X &&
+               Y == vector.Y;
+    }
+}

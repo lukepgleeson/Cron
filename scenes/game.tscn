@@ -49,6 +49,8 @@ zoom = Vector2(4, 4)
 position = Vector2(-68, -13)
 script = ExtResource("3_cvkgx")
 
+[node name="TestTimer" type="Timer" parent="PlanPlayer"]
+
 [node name="ExecutePlayer" parent="." instance=ExtResource("1_oxvkw")]
 position = Vector2(-68, -13)
 script = ExtResource("4_dfjr7")

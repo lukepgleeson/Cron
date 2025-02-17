@@ -10,14 +10,14 @@ public static class GridTranslation
             throw new ArgumentException("Neither value of Vector can equal 0:" + "x = " + x + ", y = " + y);
         }
 
-        int Vector2X = (x * SizeConstants.SQUARE) + ((-x / Math.Abs(x)) * (SizeConstants.SQUARE / 2));
-        int Vector2Y = (y * SizeConstants.SQUARE) + ((-y / Math.Abs(y)) * ((SizeConstants.SQUARE / 2))
+        int vector2X = (x * SizeConstants.SQUARE) + ((-x / Math.Abs(x)) * (SizeConstants.SQUARE / 2));
+        int vector2Y = (y * SizeConstants.SQUARE) + ((-y / Math.Abs(y)) * ((SizeConstants.SQUARE / 2))
                 - (SizeConstants.SQUARE - SizeConstants.PLAYER) / 2);
-        if (Math.Abs(Vector2Y) > SizeConstants.BOUNDARY || Math.Abs(Vector2X) > SizeConstants.BOUNDARY)
+        if (Math.Abs(vector2Y) > SizeConstants.BOUNDARY || Math.Abs(vector2X) > SizeConstants.BOUNDARY)
         {
-            throw new ArgumentException("Created Vector exceeds bounds of game. (" + Vector2X + ", " + Vector2Y + ")");
+            throw new ArgumentException("Created Vector exceeds bounds of game. (" + vector2X + ", " + vector2Y + ")");
         }
 
-        return new Vector2(Vector2X, Vector2Y);
+        return new Vector2(vector2X, vector2Y);
     }
 }

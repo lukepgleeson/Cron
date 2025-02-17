@@ -1,16 +1,12 @@
 using Godot;
-using System.Collections.Generic;
 
 public partial class PlanPlayer : Player
 {
-    private bool freeze = false;
-
-    public List<CronVector> Moves { get => moves; }
-    public bool Freeze { get => freeze; set => freeze = value; }
+    public bool Freeze { get => Freeze; set => Freeze = value; }
 
     public override void _Process(double delta)
     {
-        if (!freeze)
+        if (!Freeze)
         {
             move();
         }

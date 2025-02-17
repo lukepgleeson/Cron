@@ -3,20 +3,23 @@ using System.Collections.Generic;
 
 public partial class ExecutePlayer : Player
 {
-    private Timer resolveTimer;
+    private Timer _resolveTimer;
 
-    public void Resolve(List<CronVector> moves){
-        this.moves = moves;
-        resolveTimer = GetParent().GetNode<Timer>("ResolveTimer");
-        resolveTimer.Timeout += Move;
-        resolveTimer.Start();
+    public void Resolve(List<CronVector> Moves)
+    {
+        this.Moves = Moves;
+        _resolveTimer = GetParent().GetNode<Timer>("ResolveTimer");
+        _resolveTimer.Timeout += Move;
+        _resolveTimer.Start();
     }
-    
-    private void Move(){
-        this.CronHop(moves[0]);
-        moves.RemoveAt(0);
-        if(moves.Count == 0){
-            resolveTimer.Stop();
+
+    private void Move()
+    {
+        this.CronHop(Moves[0]);
+        Moves.RemoveAt(0);
+        if (Moves.Count == 0)
+        {
+            _resolveTimer.Stop();
         }
     }
 }

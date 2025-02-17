@@ -19,9 +19,9 @@ public class CronVector
 
     public CronVector Add(CronVector otherVector)
     {
-        int AddedX = this.X + otherVector.X == 0 ? otherVector.X / Math.Abs(otherVector.X) : this.X + otherVector.X;
-        int AddedY = this.Y + otherVector.Y == 0 ? otherVector.Y / Math.Abs(otherVector.Y) : this.Y + otherVector.Y;
-        return new CronVector(AddedX, AddedY);
+        int addedX = this.X + otherVector.X == 0 ? otherVector.X / Math.Abs(otherVector.X) : this.X + otherVector.X;
+        int addedY = this.Y + otherVector.Y == 0 ? otherVector.Y / Math.Abs(otherVector.Y) : this.Y + otherVector.Y;
+        return new CronVector(addedX, addedY);
     }
 
     public override string ToString()

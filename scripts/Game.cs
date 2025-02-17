@@ -8,10 +8,6 @@ public partial class Game : Node2D
         roundEndButton.Pressed += RoundResolverButtonPressed;
     }
 
-    public override void _Process(double delta)
-    {
-    }
-
     private void RoundResolverButtonPressed()
     {
         PlanPlayer planPlayer = GetNode<PlanPlayer>("PlanPlayer");

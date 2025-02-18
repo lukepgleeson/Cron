@@ -1,19 +1,17 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class Player : CharacterBody2D
+public partial class CronCharacter : CharacterBody2D
 {
-    protected CronVector CronPosition;
+    public CronVector CronPosition;
     public List<CronVector> Moves { get => Moves; set => Moves = value; }
 
-    public Player()
+    public CronCharacter()
     {
-        this.CronPosition = new CronVector(-5, 5);
-        this.Position = this.CronPosition.ToVector2();
         this.Moves = new List<CronVector>();
     }
 
-    public Player(int CronX, int CronY)
+    public CronCharacter(int CronX, int CronY)
     {
         this.CronPosition = new CronVector(CronX, CronY);
         this.Position = this.CronPosition.ToVector2();

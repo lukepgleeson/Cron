@@ -1,8 +1,13 @@
 using Godot;
 
-public partial class PlanPlayer : Player
+public partial class PlanPlayer : CronCharacter
 {
     public bool Freeze { get => Freeze; set => Freeze = value; }
+
+    public PlanPlayer() {
+        this.CronPosition = new CronVector(-5, 5);
+        this.Position = this.CronPosition.ToVector2();
+    }
 
     public override void _Process(double delta)
     {

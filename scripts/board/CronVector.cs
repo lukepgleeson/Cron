@@ -24,6 +24,13 @@ public class CronVector
         return new CronVector(addedX, addedY);
     }
 
+    public CronVector Subtract(CronVector otherVector)
+    {
+        int subtractedX = this.X - otherVector.X == 0 ? -otherVector.X / Math.Abs(otherVector.X) : this.X - otherVector.X;
+        int subtractedY = this.Y - otherVector.Y == 0 ? -otherVector.Y / Math.Abs(otherVector.Y) : this.Y - otherVector.Y;
+        return new CronVector(subtractedX, subtractedY);
+    }
+
     public override string ToString()
     {
         return "x : " + this.X + "," + " y : " + this.Y;
@@ -34,5 +41,10 @@ public class CronVector
         return obj is CronVector vector &&
                X == vector.X &&
                Y == vector.Y;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(X, Y);
     }
 }

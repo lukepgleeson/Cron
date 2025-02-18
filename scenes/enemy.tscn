@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://v153syu0x7ra"]
+
+[ext_resource type="Texture2D" uid="uid://bpmn5a6i34dyv" path="res://assets/sprites/slime_green.png" id="1_elqfx"]
+[ext_resource type="Script" path="res://scripts/character/Enemy.cs" id="1_gbi5i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuuy8"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig73h"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fp8u"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nh4c"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p58l5"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx61e"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aljd6"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhfpf"]
+atlas = ExtResource("1_elqfx")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfw72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuuy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig73h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fp8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nh4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p58l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx61e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aljd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhfpf")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33eic"]
+radius = 5.09902
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_gbi5i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bfw72")
+animation = &"new_animation"
+frame_progress = 0.578538
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_33eic")

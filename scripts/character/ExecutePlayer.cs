@@ -1,9 +1,14 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class ExecutePlayer : Player
+public partial class ExecutePlayer : CronCharacter
 {
     private Timer _resolveTimer;
+
+    public ExecutePlayer() {
+        this.CronPosition = new CronVector(-5, 5);
+        this.Position = this.CronPosition.ToVector2();
+    }
 
     public void Resolve(List<CronVector> Moves)
     {
